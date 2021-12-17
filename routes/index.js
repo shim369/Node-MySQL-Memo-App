@@ -21,6 +21,10 @@ router.get('/', function(req, res) {
   
 });
 
+router.get('/new', (req, res) => {
+  res.render('new.ejs', {title: 'Memo App' });
+});
+
 
 
 module.exports = router;
