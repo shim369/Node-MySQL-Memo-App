@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-const mysql = require('mysql2'); // ←ここをmysql2に変更
-const app = require('../app');
+const express = require('express');
+const router = express.Router();
+const mysql = require('mysql2');
+// const app = require('../app');
 
 const connection = mysql.createConnection({
   host :  'localhost',
@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   database:  'memoapp'
 });
 /* GET home page. */
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
   connection.query(
     'SELECT * FROM memo',
     (error,results) => {
