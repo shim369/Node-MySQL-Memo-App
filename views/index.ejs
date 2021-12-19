@@ -22,12 +22,20 @@
         <ul class="table-body">
           <% items.forEach(item => { %>
             <li>
-              <span class="id-column">
-                <%= item.id %>
-              </span>
-              <span class="name-column">
-                <%= item.title %>
-              </span>
+              <div class="item-data">
+                <span class="id-column">
+                  <%= item.id %>
+                </span>
+                <span class="name-column">
+                  <%= item.title %>
+                </span>
+              </div>
+              <div class="item-menu">
+                <form action="/delete/<%= item.id %>" method="post">
+                  <input type="submit" value="削除">
+                </form>
+                <a href="/edit/<%= item.id %>">編集</a>
+              </div>
             </li>
           <% }); %>
         </ul>

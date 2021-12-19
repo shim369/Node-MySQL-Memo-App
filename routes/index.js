@@ -34,4 +34,34 @@ router.post('/create', (req, res) => {
   );
 });
 
+router.post('/delete/:id', (req, res) => {
+  connection.query(
+    'DELETE FROM memo WHERE id = ?',
+    [req.params.id],
+    (error, results) => {
+      res.redirect('/');
+    }
+  );
+});
+
+router.get('/edit/:id', (req, res) => {
+  connection.query(
+    'SELECT * FROM memo WHERE id = ?',
+    [req.params.id],
+    (error,results) => {
+      res.render('edit.ejs',{item: results[0],title: 'Memo App' });
+    }
+  );
+});
+
+router.post('/update/:id', (req, res) => {
+  connection.query(
+    'UPDATE memo SET title = ? WHERE id = ?',
+    [req.body.itemName,req.params.id],
+    (error,results) => {
+      res.redirect('/');
+    }
+  );
+});
+
 module.exports = router;
