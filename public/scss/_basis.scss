@@ -12,12 +12,13 @@ header {
   height: 56px;
   background-color: $base_color;
   border-bottom: 1px solid $sub_color1;
+  padding: 10px 0;
 }
 
 .header-logo {
-  margin-left: 56px;
+  margin-left: 30px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 40px;
   line-height: 56px;
   color: $sub_color3;
   display: inline;
