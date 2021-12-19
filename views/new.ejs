@@ -14,8 +14,10 @@
         <h1>Memo作成</h1>
       </div>
       <div class="item-form-wrapper">
-        <input type="text">
-        <input type="submit" value="作成する">
+        <form action="/create" method="post">
+          <input name="itemName" type="text">
+          <input type="submit" value="作成する">
+        </form>
       </div>
       <a href="/" class="cancel-button">もどる</a>
     </div>

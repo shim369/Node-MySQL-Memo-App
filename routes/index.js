@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   database:  'memoapp'
 });
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   connection.query(
     'SELECT * FROM memo',
     (error,results) => {
@@ -25,6 +25,14 @@ router.get('/new', (req, res) => {
   res.render('new.ejs', {title: 'Memo App' });
 });
 
-
+router.post('/create', (req, res) => {
+  connection.query(
+    'INSERT INTO memo (title) VALUES (?)',
+    [req.body.itemName],
+    (error, results) => {
+      res.redirect('/');
+    }
+  );
+});
 
 module.exports = router;
