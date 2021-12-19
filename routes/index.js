@@ -12,9 +12,8 @@ const connection = mysql.createConnection({
 /* GET home page. */
 router.get('/', (req, res) => {
   connection.query(
-    'SELECT * FROM memo',
+    'SELECT * FROM memo ORDER BY id ASC',
     (error,results) => {
-      console.log(results);
       res.render('index', { items: results, title: 'Memo App' });
     }
   );
